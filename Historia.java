@@ -37,7 +37,7 @@ public class Historia {
                 +" se apaixonaram. Os dois passaram anos relutando essa paixão que crescia cada dia mais em seus corações, porque o medo "
                 +"era maior. E se Malu acordasse?\nO então sonho da família em ver Malu acordar, se tornava um pesadelo. Como a tenista"
                 +" com a vida perfeita reagiria ao saber que se passaram anos e ela não seria mais uma menininha, nem tão pouco teria o "
-                +"seu grande amor como namorado. Além disso, qual caminho teria o amor de irmãs entre Ana e ela...(próximo capitulo)");
+                +"seu grande amor como namorado. Além disso, qual caminho teria o amor de irmãs entre Ana e ela...");
 
             }else if(ana=="malu e rodrigo"){
                 System.out.println((malue).equalsIgnoreCase(erodrigo));
