@@ -52,7 +52,7 @@ public class Historia {
         }else{
             System.out.println("Malu chega ao seu destino e se depara com milhares de fãs a sua espera. A tenista já estava acostumada"
             +" a ter holofortes a sua volta.\nChegando a hora do jogo, Malu começa a ter forte crises de ansiedade e só havia uma coisa que"
-            +" poderia lhe acalmar...(cenas do próximo capitulo)");
+            +" poderia lhe acalmar...");
         }
 
     }
