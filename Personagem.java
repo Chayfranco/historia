@@ -8,6 +8,8 @@ public Personagem(String nome, int idade, int energia){
     this.idade = idade;
     this.energia = energia;
 }
+public Personagem() {
+}
 boolean mudanca(int mudanca){
     boolean destino = true;
     this.energia += mudanca;
@@ -29,5 +31,23 @@ boolean mudanca(int mudanca){
     }
 
 
+}
+public String getNome() {
+    return nome;
+}
+public void setNome(String nome) {
+    this.nome = nome;
+}
+public int getIdade() {
+    return idade;
+}
+public void setIdade(int idade) {
+    this.idade = idade;
+}
+public int getEnergia() {
+    return energia;
+}
+public void setEnergia(int energia) {
+    this.energia = energia;
 }
 }
