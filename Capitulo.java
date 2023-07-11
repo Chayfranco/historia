@@ -1,51 +1,58 @@
 import java.util.Scanner;
-
 public class Capitulo {
     String nome;
     String texto;
-    String escolha1;
-    String escolha2;
+    String[] escolhas;
     Personagem personagem;
-    int alteracaoEnergia; 
+    int alteracaoEnergia;
+    Scanner scan = new Scanner(System.in);
+    
 
-public Capitulo(String nome, String texto, String escolha1, String escolha2, Personagem personagem, int alteracaoEnergia){
+public Capitulo(String nome, String texto, String[] escolhas, Personagem personagem, int alteracaoEnergia){
     this.nome = nome;
     this.texto = texto;
-    this.escolha1 = escolha1;
-    this.escolha2 = escolha2;
+    this.escolhas = escolhas;
     this.personagem = personagem;
     this.alteracaoEnergia = alteracaoEnergia;
 }
 public void mostrar(){
     System.out.println("Nome: " + nome);
     System.out.println("Texto: " + texto);
-    System.out.println("Escolha 1: " + escolha1);
-    System.out.println("Escolha 2: " + escolha2);
-    personagem.mudanca(alteracaoEnergia);
+    System.out.println("As escolhas são:");
+    for (String escolha : escolhas) {
+        System.out.println(escolha);
+    }
+    if(personagem != null) {
+        personagem.mudanca(alteracaoEnergia);
+    }
+
 }
-public int escolher() {
-    int escolha = 0;
+public int escolher(Scanner scanner) {
     boolean escolhaValida = false;
 
     while (!escolhaValida) {
-    System.out.println("Digite sua escolha (1 ou 2): ");
-    escolha = lerEscolhaDoUsuario();
+        System.out.println("Digite sua escolha (1 ou 2): ");
+        String escolha = scan.nextLine();
+        for (int i = 0, i < escolhas.length; i++)
 
-    if (escolha == 1 || escolha == 2) {
-    escolhaValida = true;
-    } else {
-    System.out.println("Escolha inválida. Tente novamente.");
-    }
-    }
+        if (escolha.equalsIgnoreCase(escolhas[0])) {
+            escolhaValida = true;
+            return 0;
+        }else if(escolha.equalsIgnoreCase(escolhas[1])){
+            escolhaValida = true;
+            return 1;
+        } else {
+            System.out.println("Escolha inválida. Tente novamente.");
+        }
+    
 
-    return escolha;
+    
     }
-private int lerEscolhaDoUsuario() {
-    Scanner scanner = new Scanner(System.in);
-
-    scanner.close();
-    return scanner.nextInt();
-        
-
+    return 0;
     }
+public int escolher(Capitulo ind) {
+    return 0;
+}
+
+
 }
