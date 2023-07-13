@@ -19,8 +19,10 @@ public void mostrar(){
     System.out.println("Nome: " + nome);
     System.out.println("Texto: " + texto);
     System.out.println("As escolhas são:");
-    for (String escolha : escolhas) {
+    if (escolhas != null){
+        for (String escolha : escolhas) {
         System.out.println(escolha);
+    }
     }
     if(personagem != null) {
         personagem.mudanca(alteracaoEnergia);
@@ -28,22 +30,23 @@ public void mostrar(){
 
 }
 public int escolher(Scanner scanner) {
-    boolean escolhaValida = false;
+    boolean escolhaValida = true;
 
-    while (!escolhaValida) {
+    while (escolhaValida) {
         System.out.println("Digite sua escolha (1 ou 2): ");
         String escolha = scan.nextLine();
-        for (int i = 0, i < escolhas.length; i++)
 
-        if (escolha.equalsIgnoreCase(escolhas[0])) {
-            escolhaValida = true;
-            return 0;
-        }else if(escolha.equalsIgnoreCase(escolhas[1])){
-            escolhaValida = true;
-            return 1;
-        } else {
-            System.out.println("Escolha inválida. Tente novamente.");
-        }
+        for (int i = 0; i < escolhas.length; i++)
+
+            if (escolha.equalsIgnoreCase(escolhas[i])) {
+                
+                return 0;
+            }else if(escolha.equalsIgnoreCase(escolhas[i+1])){
+                
+                return 1;
+            } else {
+                System.out.println("Escolha inválida. Tente novamente.");
+            }
     
 
     

@@ -5,7 +5,7 @@ public class Historia {
 
         Personagem malu = new Personagem("Malu", 23, 100);
         Personagem personagem = new Personagem();
-        Capitulo capitulo1 = new Capitulo("Capítulo 1", "Um grave acidente acontece e todos os sonhos de Malu vão por água abaixo. Sua família está no hospital à espera de uma notícia do seu estado de saúde. E o pior parece acontecer, Malu entra em um coma profundo, os médicos não apresentam nenhuma esperança à Ana e Rodrigo, que não saíram do lado de Malu nem por um segundo.\n\nDigite qual rumo da história você deseja seguir:", new String[]{"Ana e Rodrigo","Malu e Rodrigo"}, malu, -10);
+        Capitulo capitulo1 = new Capitulo("Capítulo 1", "Um grave acidente acontece e todos os sonhos de Malu vão por água abaixo. Sua família está no hospital à espera de uma notícia do seu estado de saúde. E o pior parece acontecer, Malu entra em um coma profundo, os médicos não apresentam nenhuma esperança à Ana e Rodrigo, que não saíram do lado de Malu nem por um segundo.\n\nDigite qual rumo da história você deseja seguir:", new String[]{"1","2"}, malu, -10);
 
         Capitulo capitulo2 = new Capitulo("Capítulo 2", "Anos se passaram...\nMalu continua em coma após 5 anos do terrível acidente. Mas o que a história não esperava era que nesse tempo todo de visitas aos hospitais e trocas de turno para ficar com Malu, Ana e Rodrigo se apaixonaram. Os dois passaram anos relutando essa paixão que crescia a cada dia mais em seus corações, porque o medo era maior. E se Malu acordasse?\nO então sonho da família em ver Malu acordar, se tornava um pesadelo. Como a tenista com a vida perfeita reagiria ao saber que se passaram anos e ela não seria mais uma menininha, nem tão pouco teria o seu grande amor como namorado. Além disso, qual caminho teria o amor de irmãs entre Ana e ela...", new String[]{"1", "2"}, malu, -10);
         Capitulo capitulo3 = new Capitulo("Capítulo 2", "Malu finalmente acorda do coma. Abre os olhos e se vê confusa com tantas pessoas ao seu redor. Ana, Rodrigo e a sua mãe estão próximos à sua cama de hospital.\nHoras após o seu acordar, o médico aparece um pouco abatido e ao mesmo tempo esperançoso. Malu recebe a notícia de que está tudo bem com o seu bebê. O espanto no rosto de todos é cada vez maior, principalmente da sua mãe, que não parece estar nem um pouco contente, após anos projetando a vida de Malu.\nE agora? Qual seria o destino da tenista de sucesso?", new String[]{"1","2"}, malu, +10);
@@ -39,10 +39,10 @@ public class Historia {
         int escolha = ind.escolher(scanner);
 
 
-        if (escolha == 1) {
+        if (escolha == 0) {
             capitulo1.mostrar();
             int anae = capitulo1.escolher(scanner);
-            if (anae == 1) {
+            if (anae == 0) {
                 capitulo2.mostrar();
                 int caminhoCapitulo2 = capitulo2.escolher(scanner);
 
@@ -51,18 +51,18 @@ public class Historia {
                 } else if (caminhoCapitulo2 == 2) {
                     capitulo4Escolha2.mostrar();
                 }
-            }else if (anae == 2) {
+            }else if (anae == 1) {
                 capitulo3.mostrar();
                 int caminhoCapitulo4 = capitulo3.escolher(scanner);
 
-                if (caminhoCapitulo4 == 1) {
+                if (caminhoCapitulo4 == 0) {
                     capitulo4Escolha1.mostrar();
-                } else if (caminhoCapitulo4 == 2) {
+                } else if (caminhoCapitulo4 == 1) {
                     capitulo4Escolha2.mostrar();
                 }
             }
 
-        }else if (escolha == 2) {
+        }else if (escolha == 1) {
             capitulo4.mostrar();
         
         }
