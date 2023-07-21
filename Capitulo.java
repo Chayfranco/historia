@@ -2,46 +2,46 @@ import java.util.Scanner;
 public class Capitulo {
     String nome;
     String texto;
-    String[] escolhas;
+    Escolha[] escolhas;
     Personagem personagem;
     int alteracaoEnergia;
     Scanner scan = new Scanner(System.in);
     
 
-public Capitulo(String nome, String texto, String[] escolhas, Personagem personagem, int alteracaoEnergia){
+public Capitulo(String nome, String texto, Personagem personagem, int alteracaoEnergia){
     this.nome = nome;
     this.texto = texto;
-    this.escolhas = escolhas;
     this.personagem = personagem;
     this.alteracaoEnergia = alteracaoEnergia;
 }
 public void mostrar(){
     System.out.println("Nome: " + nome);
     System.out.println("Texto: " + texto);
-    System.out.println("As escolhas são:");
-    if (escolhas != null){
-        for (String escolha : escolhas) {
-        System.out.println(escolha);
+    if(escolhas == null) {
+        System.out.println("Não há mais escolhas, pois a história chegou ao fim. Retorne o jogo para reviver outra perspectiva da história.");;
     }
-    }
+   
     if(personagem != null) {
         personagem.mudanca(alteracaoEnergia);
     }
+    int minhasEscolhas = escolher(scan);
+    escolhas[minhasEscolhas].pcapitulo.mostrar();
+
 
 }
 public int escolher(Scanner scanner) {
     boolean escolhaValida = true;
 
     while (escolhaValida) {
-        System.out.println("Digite sua escolha (1 ou 2): ");
+        System.out.println("Digite 1 ou 2 para escolher o rumo dessa história): ");
         String escolha = scan.nextLine();
 
         for (int i = 0; i < escolhas.length; i++)
 
-            if (escolha.equalsIgnoreCase(escolhas[i])) {
+            if (escolha.equalsIgnoreCase(escolhas[i].texto)) {
                 
                 return 0;
-            }else if(escolha.equalsIgnoreCase(escolhas[i+1])){
+            }else if(escolha.equalsIgnoreCase(escolhas[i+1].texto)){
                 
                 return 1;
             } else {
@@ -53,9 +53,6 @@ public int escolher(Scanner scanner) {
     }
     return 0;
     }
-public int escolher(Capitulo ind) {
-    return 0;
-}
 
 
 }
