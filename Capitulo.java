@@ -24,16 +24,22 @@ public void mostrar(){
     if(personagem != null) {
         personagem.mudanca(alteracaoEnergia);
     }
+    
     int minhasEscolhas = escolher(scan);
     escolhas[minhasEscolhas].pcapitulo.mostrar();
 
 
 }
+public void executar(){
+    int minhasEscolhas = escolher(scan);
+    escolhas[minhasEscolhas].pcapitulo.mostrar();
+}
+
 public int escolher(Scanner scanner) {
     boolean escolhaValida = true;
 
     while (escolhaValida) {
-        System.out.println("Digite 1 ou 2 para escolher o rumo dessa história): ");
+        System.out.println("Digite 1 ou 2 para escolher o rumo da história): ");
         String escolha = scan.nextLine();
 
         for (int i = 0; i < escolhas.length; i++)
