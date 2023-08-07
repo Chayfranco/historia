@@ -67,9 +67,9 @@ public class Historia {
 
 
 
-        ind.escolhas = new Escolha[]{new Escolha("1", capitulo1), new Escolha("2", capitulo4)};
-        capitulo1.escolhas = new Escolha[]{new Escolha("1", capitulo2), new Escolha("2", capitulo3)};
-        capitulo3.escolhas = new Escolha[]{new Escolha("1", capitulo4Escolha1), new Escolha("2", capitulo4Escolha2)};
+        ind.setEscolhas(new Escolha[]{new Escolha("1", capitulo1), new Escolha("2", capitulo4)});
+        capitulo1.setEscolhas(new Escolha[]{new Escolha("1", capitulo2), new Escolha("2", capitulo3)});
+        capitulo3.setEscolhas(new Escolha[]{new Escolha("1", capitulo4Escolha1), new Escolha("2", capitulo4Escolha2)});
         
         
         Capitulo raiz = ind;

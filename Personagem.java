@@ -1,13 +1,14 @@
 public class Personagem{
-    String nome;
-    int idade;
-    int energia;
+    private String nome;
+    private int idade;
+    private int energia;
 
 public Personagem(String nome, int idade, int energia){
     this.nome = nome;
     this.idade = idade;
     this.energia = energia;
 }
+
 public Personagem() {
 }
 boolean mudanca(int mudanca){
