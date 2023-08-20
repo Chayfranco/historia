@@ -6,8 +6,8 @@ import java.util.Scanner;
 public class Historia {
     public static void main(String[] args) throws Exception {
         LeitorArquivo leitor = new LeitorArquivo();
-        HashMap<String, Personagem> personagens = LeitorArquivo.lerPersonagens("rsc/personagem.txt");
-        HashMap<String, Capitulo> capitulos = leitor.lerCapitulo("rsc/capitulo.txt", personagens);
+        HashMap<String, Personagem> personagens = LeitorArquivo.lerPersonagens("src/rsc/personagem.txt");
+        HashMap<String, Capitulo> capitulos = leitor.lerCapitulo("src/rsc/capitulo.txt", personagens);
        
         Scanner scanner = new Scanner(System.in);
         String nome = scanner.nextLine();
