@@ -47,7 +47,7 @@ public class LeitorArquivo {
                 String texto = escaneador.nextLine();
                 String personagem = escaneador.nextLine();
                 int alteracaoEnergia = parseInt(escaneador.nextLine());
-                Capitulo capitulo = new Capitulo(nome, texto, personagens.get(personagem), alteracaoEnergia);
+                Capitulo capitulo = new Capitulo(nome, escolhas, texto, personagens.get(personagem), alteracaoEnergia);
                 capitulos.put(refOrigem, capitulo);
             }
             else if(linha.equalsIgnoreCase("escolha")){

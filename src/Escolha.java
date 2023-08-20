@@ -1,7 +1,6 @@
 package src;
 
 public class Escolha {
-    public static int escolha2;
     private String texto;
     private Capitulo pcapitulo;
 
@@ -10,13 +9,14 @@ public Escolha(String texto, Capitulo pcapitulo){
     this.pcapitulo = pcapitulo;
 }
     public String getTexto(){
+
         return this.texto;
     }
 
     public void setTexto(String texto) {
         this.texto = texto;
     }
-
+  
     public Capitulo getPcapitulo() {
         return this.pcapitulo;
     }

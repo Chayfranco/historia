@@ -27,7 +27,7 @@ public class Historia {
 
 
         
-        Capitulo raiz = capitulos.get("contexto");
+        Capitulo raiz = capitulos.get("a");
         raiz.executar();
 
         System.out.println("Bem-vindo(a) à história de Malu, Ana e Rodrigo!\n");
