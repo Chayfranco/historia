@@ -1,4 +1,7 @@
+package src;
+
 public class Escolha {
+    public static int escolha2;
     private String texto;
     private Capitulo pcapitulo;
 

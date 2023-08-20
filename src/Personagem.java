@@ -1,3 +1,5 @@
+package src;
+
 public class Personagem{
     private String nome;
     private int idade;
@@ -11,6 +13,9 @@ public Personagem(String nome, int idade, int energia){
 
 public Personagem() {
 }
+public Personagem(String id, String nome2, int energia2) {
+}
+
 boolean mudanca(int mudanca){
     boolean destino = true;
     this.energia += mudanca;
