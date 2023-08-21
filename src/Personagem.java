@@ -1,59 +1,50 @@
 package src;
 
-public class Personagem{
-    private String nome;
-    private int idade;
-    private int energia;
+public class Personagem {
 
-public Personagem(String nome, int idade, int energia){
+  private String nome;
+  private int energia;
+
+  public Personagem(String nome, int energia) {
+
     this.nome = nome;
-    this.idade = idade;
     this.energia = energia;
-}
-
-public Personagem() {
-}
-public Personagem(String id, String nome2, int energia2) {
-}
-
-boolean mudanca(int mudanca){
-    boolean destino = true;
-    this.energia += mudanca;
-
-    if (energia<=0){
-        this.energia = 0;
-        System.out.println(this.nome + " mudou a sua energia para " + this.energia);
-        destino = false;
-        return destino;
-    } else if(energia>100){
-        this.energia = 100;
-        System.out.println(this.nome + " mudou a sua energia para " + this.energia);
-        destino = false;
-        return destino;
-
-    } else{
-        System.out.println(this.nome + ", a sua energia é de " + this.energia);
-        return destino;
     }
 
+    public Personagem(String nome) {
+      this.nome = nome;
+      this.energia = 100;
 
-}
-public String getNome() {
-    return nome;
-}
-public void setNome(String nome) {
-    this.nome = nome;
-}
-public int getIdade() {
-    return idade;
-}
-public void setIdade(int idade) {
-    this.idade = idade;
-}
-public int getEnergia() {
-    return energia;
-}
-public void setEnergia(int energia) {
+  }
+
+  public void ajustarEnergia(int variacao) {
+    if (variacao != 0) {
+      setEnergia(this.energia + variacao);
+      System.out.println("a energia de " + this.nome + " foi para " + this.energia);
+
+    }
+  }
+
+  public void setEnergia(int energia) {
     this.energia = energia;
-}
-}
+    if (this.energia < 0) {
+       this.energia = 0;
+    }
+
+  }
+
+  public int getEnergia() {
+    return this.energia;
+  }
+
+  public String getNome() {
+    return this.nome;
+  }
+  
+
+  
+
+
+
+  
+}  

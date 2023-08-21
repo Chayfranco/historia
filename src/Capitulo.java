@@ -1,110 +1,103 @@
 package src;
 import java.util.ArrayList;
+import java.util.Map;
 import java.util.Scanner;
 
 public class Capitulo {
-    private String nome;
-    private String texto;
-    private ArrayList<Escolha> escolhas;
-    private Personagem personagem;
-    private int alteracaoEnergia;
-    private Scanner scan = new Scanner(System.in);
-    private Personagem protagonista;
-    
+  private String texto;
+  protected ArrayList<Escolha> escolhas;
+  private Personagem personagem1;
+  private int variacaoEnergiaPersonagem1;
+  protected Scanner escaneador;
 
-public Capitulo(String nome, ArrayList<Escolha> escolhas,String texto, Personagem personagem, int alteracaoEnergia){
-    this.nome = nome;
-    this.texto = texto;
-    this.escolhas = new ArrayList<>();
-    this.personagem = protagonista;
-    this.alteracaoEnergia = alteracaoEnergia;
-}
+  protected Capitulo() {
+    this.texto = "";
+    this.escolhas = new ArrayList<Escolha>();
+  }
+// Esse contrutor é usado para criar o capitulo raiz
+  public Capitulo(Map<String, Personagem> personagens, Scanner escaneadorDoConsole, Scanner escaneadorDeArquivo) 
+  {
+    this.LerCapitulo(personagens, escaneadorDeArquivo);
+    this.escaneador = escaneadorDoConsole;
+    this.escolhas = new ArrayList<Escolha>();
+  }
+// esse metodo é usado para criar os outros capitulos
+  protected void LerCapitulo(Map<String, Personagem> personagens, Scanner escaneadorDeArquivo) {
 
+    escaneadorDeArquivo.nextLine();
+    String idPersonagem1 = escaneadorDeArquivo.nextLine();
+    this.personagem1 = personagens.get(idPersonagem1);
 
-public void adicionar(Escolha Escolha){
-    escolhas.add(Escolha);
-}
+    escaneadorDeArquivo.nextLine();
+    String linha = escaneadorDeArquivo.nextLine();
+    this.texto = "";
+    while (!linha.equals("VARIACOES")) {
 
+      if (linha.equals(idPersonagem1)) {
+        texto = texto + personagem1.getNome();
+      } else {
+        texto = texto + linha;
+      }
+      linha = escaneadorDeArquivo.nextLine();
 
-public String getNome() {
-    return this.nome;
-}
-
-public void setNome(String nome) {
-    this.nome = nome;
-}
-
-public String getTexto() {
-    return this.texto;
-}
-
-public void setTexto(String texto) {
-    this.texto = texto;
-}
-
-public ArrayList<Escolha> getEscolhas() {
-    return this.escolhas;
-}
-
-public void setEscolhas(ArrayList<Escolha> escolhas) {
-    this.escolhas = escolhas;
-}
-
-public Personagem getPersonagem() {
-    return this.personagem;
-}
-
-public void setPersonagem(Personagem personagem) {
-    this.personagem = personagem;
-}
-
-
-public Scanner getScan() {
-    return this.scan;
-}
-
-public void setScan(Scanner scan) {
-    this.scan = scan;
-}
-
-public void mostrar(){
-    System.out.println("Nome: " + this.nome);
-    System.out.println("Texto: " +this.texto);
-    System.out.println("Digite 1 ou 2 para escolher o rumo da história): ");
-    if(escolhas == null) {
-        System.out.println("Não há mais escolhas, pois a história chegou ao fim. Retorne o jogo para reviver outra perspectiva da história.");
     }
-    if(personagem != null) {
-        personagem.mudanca(alteracaoEnergia);
-    }
-    
+    this.variacaoEnergiaPersonagem1 = Integer.parseInt(escaneadorDeArquivo.nextLine());
 
-}
+  }
+// esse metodo é usado para adicionar as escolhas dentro dos capitulos
+  public void adicionarEscolha(Escolha escolha) {
+    escolhas.add(escolha);
 
-public void executar(){
+  }
+  // esse metodo é usado para executar os capitulos
+  public void executar() {
     mostrar();
-    escolher();
+
+    if (escolhas.size() > 0) {
+        int idCapituloEscolhido = escolher();
+        System.out.println();
+        System.out.println("---------------------------------------------");
+        System.out.println();
+        escolhas.get(idCapituloEscolhido).getProximo().executar();
+    } else {
+        System.out.println("FIM");
+    }
 }
+// esse metodo é usado para mostrar os capitulos
+protected void mostrar(){
+    System.out.println(texto);
+    personagem1.setEnergia(variacaoEnergiaPersonagem1);
 
-public void escolher() {
-    boolean escolhaValida = true;
-
-    while (escolhaValida == true) {
-        String escolha = scan.nextLine();
-
-        for (Escolha escolhas : escolhas)
-
-            if (escolhas.getTexto().equalsIgnoreCase(escolha)) {
-                escolhaValida = false;
-                Capitulo itulo = escolhas.getPcapitulo();
-                itulo.executar();
-
-
-    
-        }
-        System.out.println("deuséfiel");
+    for (int i = 0; i < escolhas.size(); i++) {
+        System.out.println(" - " + escolhas.get(i).getTextoDigitado());
     }
 
-
+    System.out.print("Escolha: ");
 }
+
+  public int escolher() {
+
+    int opcaoEscolhida = 0;
+    String escolha;
+    boolean escolhaValida = false;
+
+    while (!escolhaValida) {
+
+      escolha = escaneador.nextLine();
+      for (int i = 0; i < escolhas.size(); i++) {
+        if (escolha.equalsIgnoreCase(escolhas.get(i).getTextoDigitado())) {
+          escolhaValida = true;
+          opcaoEscolhida = i;
+        }
+      }
+
+      if (!escolhaValida) {
+
+        System.out.println("Escolha inválida");
+      }
+    }
+
+    return opcaoEscolhida;
+  }
+
 }
