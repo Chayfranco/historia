@@ -55,22 +55,18 @@ public class LeitorArquivo {
             linha.equals("CAPITULO_COM_IMAGEM")) {
 
           escaneadorDeArquivo.nextLine();
-          String id = escaneadorDeArquivo.nextLine();
+          String id = escaneadorDeArquivo.nextLine().toLowerCase();
 
-          if (linha.equals("CAPITULO")) 
-          {
-            capitulos.put(id, new Capitulo(personagens, escaneadorDoConsole, escaneadorDeArquivo));
-          } 
-          else if (linha.equals("ESCOLHA")) 
+          if (linha.equals("CAPITULO")) capitulos.put(id, new Capitulo(personagens, escaneadorDoConsole, escaneadorDeArquivo));
+          else if (linha.equals("CAPITULO_COM_IMAGEM")) capitulos.put(id, new CapituloImagem(personagens, escaneadorDoConsole, escaneadorDeArquivo));
           
-          {
-            LerEscolha(capitulos, escaneadorDeArquivo);
-          }
-
+          
           escaneadorDeArquivo.nextLine();
+          
 
         } else if (linha.equals("ESCOLHA")) {
           LerEscolha(capitulos, escaneadorDeArquivo);
+          
 
         }
         linha = escaneadorDeArquivo.nextLine();
@@ -102,5 +98,4 @@ public class LeitorArquivo {
   }
 
 }
-
 

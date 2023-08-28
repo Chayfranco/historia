@@ -12,13 +12,5 @@ public class Historia {
         Capitulo raiz = capitulos.get("a");
         raiz.executar();
 
-
-
-
-        
-    }
-
-    
-}
-
+    }}
 
