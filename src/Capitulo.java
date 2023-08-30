@@ -66,7 +66,6 @@ public class Capitulo {
 // esse metodo é usado para mostrar os capitulos
 protected void mostrar(){
     System.out.println(texto);
-    personagem1.setEnergia(variacaoEnergiaPersonagem1);
 
     for (int i = 0; i < escolhas.size(); i++) {
         System.out.println(" - " + escolhas.get(i).getTextoDigitado());
